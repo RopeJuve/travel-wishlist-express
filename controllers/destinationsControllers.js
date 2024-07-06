@@ -2,9 +2,17 @@ import Country from "../model/country.js";
 
 export const getCountries = async (req, res) => {
   try {
-    const { sort } = req.query;
+    const { sort, visited, wishlist } = req.query;
     if (sort === "true") {
       const countries = await Country.find().sort({ name: 1 });
+      return res.json(countries);
+    }
+    if (visited === "true") {
+      const countries = await Country.find({ visited: true });
+      return res.json(countries);
+    }
+    if (wishlist === "true") {
+      const countries = await Country.find({ visited: false });
       return res.json(countries);
     }
     const countries = await Country.find();
