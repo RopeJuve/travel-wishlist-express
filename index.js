@@ -5,9 +5,11 @@ import path from "path";
 import { fileURLToPath } from "url";
 import destinationRouter from "./routes/destinationsRouter.js";
 import viewsRouter from "./routes/viewsRouter.js";
+import bodyParser from "body-parser";
 
 const app = express();
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
@@ -36,3 +38,5 @@ mongoose
   .catch((err) => {
     console.log("Error connecting to MongoDB", err);
   });
+
+export default app;

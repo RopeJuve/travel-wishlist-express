@@ -35,7 +35,7 @@ export const createCountry = async (req, res) => {
   try {
     const newCountry = new Country(country);
     await newCountry.save();
-    res.status(201).json(newCountry);
+    res.redirect('/');
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
