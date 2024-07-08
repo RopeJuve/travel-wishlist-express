@@ -24,3 +24,13 @@ export const getIndexHTML = async (req, res) => {
     res.render("index", { countries });
   }
 };
+
+
+export const getDestinationHTML = async (req, res) => {
+  const code = req.params.code;
+  const country = await getDestinations({ code });
+  if (!country) {
+    return res.status(500).json({ message: "Error fetching data" });
+  }
+  res.render("destination", { country });
+}

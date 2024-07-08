@@ -29,7 +29,7 @@
         <ul>
             <% countries.forEach(country=> {%>
                 <li>
-                    <a href="/destination/<%= country.name %>">
+                    <a href="/destination/<%= country.alpha2Code %>">
                         <div class="card" style="background-image: url('<%= country.image %>')">
                             <div class="card-content">
                                 <h2>
