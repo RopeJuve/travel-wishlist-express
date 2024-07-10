@@ -15,5 +15,5 @@ const updateTrip = async (code, url) => {
 
 visitBtn.addEventListener("click", async () => {
   const code = visitBtn.getAttribute("data-code");
-  await updateTrip(code, "http://localhost:5000/api/countries");
+  await updateTrip(code, "https://travel-wishlist-one.vercel.app/api/countries");
 });
