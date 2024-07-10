@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Wishlist</title>
     <link rel="stylesheet" href="../index.css" />
-</head>
-<body>
+    <script src="../destination.js" defer></script>
+  </head>
+
+  <body>
     <main class="container">
-        <h1>Travel Wishlist</h1>
-        <nav class="nav-container">
-            <div class="nav-links">
-                <a href="/">All</a>
-            </div>
-        </nav>
-        <% console.log(country) %>
+      <h1>Travel Wishlist</h1>
+      <nav class="nav-container">
+        <div class="nav-links">
+          <a href="/">All</a>
+        </div>
+        <% if (!country.visited) { %>
+        <button data-code="<%= country.alpha2Code %>" id="visit-btn" class="add-trip">Visit Now</button>
+        <% } %>
+      </nav>
+      <h1><%= country.name %></h1>
+      <div class="content">
+        <img
+          class="country-img"
+          src="<%= country.image %>"
+          alt="<%= country.name %>"
+        />
+        <p><%= country.description %></p>
+      </div>
     </main>
-</body>
+    <footer class="container footer">
+      <p>© 2024 Travel Wishlist</p>
+    </footer>
+  </body>
 </html>

@@ -35,7 +35,7 @@ export const createCountry = async (req, res) => {
   try {
     const newCountry = new Country(country);
     await newCountry.save();
-    res.redirect('/');
+    res.redirect("/");
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -65,7 +65,7 @@ export const deleteCountry = async (req, res) => {
       { visited: true },
       { new: true }
     );
-    res.json(country);
+    res.status(200).json(country);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

@@ -1,76 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Wishlist</title>
     <link rel="stylesheet" href="/index.css" />
     <script src="/script.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <main class="container">
-        <h1>Travel Wishlist</h1>
-        <nav class="nav-container">
-            <div class="nav-links">
-                <a href="/">All</a>
-            </div>
-            <div class="nav-links">
-                <a href="?visited=true">Visited</a>
-            </div>
-            <div class="nav-links">
-                <a href="?wishlist=true">Wishlist</a>
-            </div>
-            <button id="add-trip" class="add-trip">
-                + Add New Trip
-            </button>
-        </nav>
-        <ul>
-            <% countries.forEach(country=> {%>
-                <li>
-                    <a href="/destination/<%= country.alpha2Code %>">
-                        <div class="card" style="background-image: url('<%= country.image %>')">
-                            <div class="card-content">
-                                <h2>
-                                    <%= country.name %>
-                                </h2>
-                                <p>
-                                    <%= country.visited ? 'Visited' : 'Next Trip' %>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <% }); %>
-        </ul>
-    </main>
-    <div class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>Add New Trip</h2>
-            <form class="form" action="/api/countries" method="POST">
-                <div>
-                    <label for="name">Country Name</label>
-                    <input type="text" id="name" name="name" required />
-                </div>
-                <div>
-                    <label for="alpha2Code">alpha2Code</label>
-                    <input type="text" id="alpha2Code" name="alpha2Code" required />
-                </div>
-                <div>
-                    <label for="alpha3Code">alpha3Code</label>
-                    <input type="text" id="alpha3Code" name="alpha3Code" required />
-                </div>
-                <div>
-                    <label for="image">Image URL</label>
-                    <input type="text" id="image" name="image" required />
-                </div>
-                <button id="add-btn" type="submit">Add</button>
-            </form>
+      <h1>Travel Wishlist</h1>
+      <nav class="nav-container">
+        <div class="nav-links">
+          <a href="/">All</a>
         </div>
+        <div class="nav-links">
+          <a href="?visited=true">Visited</a>
+        </div>
+        <div class="nav-links">
+          <a href="?wishlist=true">Wishlist</a>
+        </div>
+        <button id="add-trip" class="add-trip">+ Add New Trip</button>
+      </nav>
+
+      <ul>
+        <% countries.forEach(country=> {%>
+        <li>
+          <a href="/destination/<%= country.alpha2Code %>">
+            <div
+              class="card"
+              style="background-image: url('<%= country.image %>')"
+            >
+              <div class="card-content">
+                <h2><%= country.name %></h2>
+                <p><%= country.visited ? 'Visited' : 'Next Trip' %></p>
+              </div>
+            </div>
+          </a>
+        </li>
+        <% }); %>
+      </ul>
+    </main>
+    <footer class="container footer">
+      <p>© 2024 Travel Wishlist</p>
+    </footer>
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Add New Trip</h2>
+        <form class="form" action="/api/countries" method="POST">
+          <div>
+            <label for="name">Country Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div>
+            <label for="alpha2Code">alpha2Code</label>
+            <input type="text" id="alpha2Code" name="alpha2Code" required />
+          </div>
+          <div>
+            <label for="alpha3Code">alpha3Code</label>
+            <input type="text" id="alpha3Code" name="alpha3Code" required />
+          </div>
+          <div>
+            <label for="image">Image URL</label>
+            <input type="text" id="image" name="image" required />
+          </div>
+          <button id="add-btn" type="submit">Add</button>
+        </form>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>
