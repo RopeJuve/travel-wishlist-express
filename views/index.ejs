@@ -49,22 +49,10 @@
       <div class="modal-content">
         <span class="close-button">&times;</span>
         <h2>Add New Trip</h2>
-        <form class="form" action="/api/countries" method="POST">
+        <form class="form">
           <div>
             <label for="name">Country Name</label>
             <input type="text" id="name" name="name" required />
-          </div>
-          <div>
-            <label for="alpha2Code">alpha2Code</label>
-            <input type="text" id="alpha2Code" name="alpha2Code" required />
-          </div>
-          <div>
-            <label for="alpha3Code">alpha3Code</label>
-            <input type="text" id="alpha3Code" name="alpha3Code" required />
-          </div>
-          <div>
-            <label for="image">Image URL</label>
-            <input type="text" id="image" name="image" required />
           </div>
           <button id="add-btn" type="submit">Add</button>
         </form>

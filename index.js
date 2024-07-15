@@ -6,10 +6,13 @@ import { fileURLToPath } from "url";
 import destinationRouter from "./routes/destinationsRouter.js";
 import viewsRouter from "./routes/viewsRouter.js";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors());
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;

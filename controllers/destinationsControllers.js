@@ -31,7 +31,7 @@ export const getCountryByCode = async (req, res) => {
 };
 
 export const createCountry = async (req, res) => {
-  const country = req.body;
+  const country = req.country;
   try {
     const newCountry = new Country(country);
     await newCountry.save();

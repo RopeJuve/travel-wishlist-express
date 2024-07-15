@@ -1,3 +1,4 @@
+
 const visitBtn = document.getElementById("visit-btn");
 
 const updateTrip = async (code, url) => {
